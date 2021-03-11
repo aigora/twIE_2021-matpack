@@ -4,7 +4,7 @@
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+Luis Lagunar Costales (Luislagu), Alejandro Beltrán Suárez (alejandrobetransuarez1),
 
 ## Objetivos del trabajo
 
