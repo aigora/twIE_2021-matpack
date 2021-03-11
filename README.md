@@ -4,7 +4,7 @@
 
 ## Integrantes del equipo
 
-Luis Lagunar Costales (Luislagu), Alejandro Beltrán Suárez (alejandrobetransuarez1),
+Luis Lagunar Costales (Luislagu), Alejandro Beltrán Suárez (alejandrobeltransuarez1), 
 
 ## Objetivos del trabajo
 
