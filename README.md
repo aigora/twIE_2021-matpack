@@ -1,13 +1,20 @@
-# [Título del trabajo]
+# MATPACK
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
-
-el mejor programa de matews del mundo
+Se trata de un software que tiene como finalidad permitir al usuario realizar el estudio de funciones de una forma más sencilla que haciendo uso de software como MATLAB. 
 
 ## Integrantes del equipo
 
-Luis Lagunar Costales (Luislagu), Alejandro Beltrán Suárez (alejandrobeltransuarez1), 
+Luis Lagunar Costales (Luislagu), Alejandro Beltrán Suárez (alejandrobeltransuarez1), Gonzalo Stampa García (gonzalosta)
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+Los objetivos del proyecto son, dada una función hallar:
+- Dominio.
+- Recorrido.
+- Función inversa.
+- Puntos de corte con los ejes.
+- Signo.
+- Derivada.
+- Extremos.
+- Puntos de inflexión.
+- Gráfica.
