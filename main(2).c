@@ -9,6 +9,8 @@ int main ()
    char multiplicacion[15] = "MULTIPLICACION";
    char division[15]= "DIVISION";
    char basicas[15] = "BASICAS";
+   char enter = '\n';
+   char enterpruev;
    float solresta ;
    //etsa variuable servira para asignar el numero de datos que se van a introducir
    int ndatos ;
@@ -17,6 +19,11 @@ int main ()
    //variable para mostrar la solucion
    float solucion=0 ;
    printf( " \n\n\n                                           Diccionario de las Matematicas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     - pulsa enter para empezar\n\n");
+   do{
+    scanf ("%c" , &enterpruev);
+   }
+    while(enter != enterpruev);
+
    printf("     escribe que tipo de operacion quiueres realizar \n\n");
    scanf("%s15[^\n]" , funcion);
    strupr(funcion);
@@ -40,7 +47,6 @@ int main ()
        for(vectorbasicas=0 ; vectorbasicas < ndatos ; vectorbasicas++ )
        {
            scanf("%f" , &operacionesbasicas[vectorbasicas]);
-           printf("%f" , operacionesbasicas [vectorbasicas]);
        }
        printf(" \n\n\n escribe que tipo de operacion basica quieres lleva a cabo \n\n\n\n");
        printf("             suma                     resta                     multiplicacion                     division \n\n\n");
@@ -78,7 +84,14 @@ int main ()
       solucion = operacionesbasicas[ 0] / soldiv;
         }
         }
-        printf("la solucion es %f" ,  solucion);
+        if (((strcmp(division , funcion))== 0) || ((strcmp(multiplicacion , funcion))== 0) || ((strcmp(resta , funcion))== 0) || ((strcmp(suma , funcion))== 0))
+        {
+
+        printf("la solucion es %f \n\n\n\n\n" ,  solucion);
+        }
+        else{
+            printf(" \n\n\n error , operacion no detectada");
+   }
    }
         else{
             printf(" \n\n\n error , operacion no detectada");
