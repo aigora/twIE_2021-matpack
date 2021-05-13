@@ -6,7 +6,7 @@
 //Esta estructura define una condición del tipo <=, <, >=, > o =.
 typedef struct
 {
-    int con;
+    int condic;
     float num;
 }condicion;
 
@@ -20,13 +20,5 @@ typedef struct
 
 int main()
 {
-    char funcion[51];
-    float x;
-
-    scanf("%50s",funcion);
-    scanf("%f",&x);
-
-    //calc_imagen(funcion,x);
-    printf("%f",calc_imagen(funcion,x));
     return 0;
 }
