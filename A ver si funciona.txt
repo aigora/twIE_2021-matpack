@@ -3,7 +3,7 @@
 int main(){
   FILE *pfA1,*pfA2,*pfA3,*pfA4,*pfA5,*pfC1,*pfNombres;
   int E1,E2,ND,Contador,rep,V1;
-  char nombre[30],nombre1[30],nombre2[30],nombre3[30],nombre4[30],RD,Opcion[100],respuesta1[]="Menu de opciones",respuesta2[]="Guardar nueva funcion",respuesta3[]="Calcular imagen",respuesta4[]="Manual",respuesta5[]="Volver",respuesta6[]="Salir",Nueva[50];
+  char nombre[30],nombre1[30],nombre2[30],nombre3[30],nombre4[30],RD,Opcion[100],respuesta2[]="Guardar nueva funcion",respuesta3[]="Calcular imagen",respuesta4[]="Manual",respuesta5[]="Volver",respuesta6[]="Salir",Nueva[50];
 
   // Abrimos fichero para escritura
   printf("\t\t\t\t\t \t \t\t ******************Calculadora Magica****************** \n");
@@ -78,12 +78,6 @@ while(Contador != 1)
 {
     scanf(" %29[^\n]",Opcion);
 printf("%s\n\n",Opcion);
-   if(strcmp(Opcion, respuesta1) == 0)
-   {
-    rep=1;
-   printf("Opciones");
-   Contador=1;
-
    }
 if(strcmp(Opcion, respuesta2) == 0)
 {
