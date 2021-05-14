@@ -1,58 +1,31 @@
-#include <stdio.h>
+#include "ficheros.h"
 
-int main(){
-  FILE *pfA1,*pfA2,*pfA3,*pfA4,*pfA5,*pfC1;
-  char texto[31];
-  char respuesta;
-  char Op;
-
-  // Abrimos fichero para escritura
-  printf("\t\t\t\t\t \t \t\t Menu \n");
-  printf("Elije la opcion: \n*Crear Proyectos \n*Abrir Proyectos \n");
-  scanf("%c",&respuesta);
-
-  if(respuesta=='A')
-  {
-       printf("En que Proyecto te quieres meter? (1-5)\n");
-    scanf("%i",&Op);
-    if(Op==1)
-    {
-pfA1 = fopen("c:Menu/Abrir Proyectos/A1/ProyectoA1.txt", "w");
-    fprintf(pfA1, "Meow");
-    fclose(pfA1); // Cerramos fichero
-
-  }
-    if(Op==2)
-    {
- pfA2 = fopen("c:Menu/Abrir Proyectos/A2/ProyectoA.txt", "w");
-    fprintf(pfA2, "Meow");
-    fclose(pfA2); // Cerramos fichero
-    }
-     if(Op==3)
-    {
-pfA3 = fopen("c:Menu/Abrir Proyectos/A3/ProyectoA3.txt", "w");
-    fprintf(pfA3, "Meow");
-    fclose(pfA3); // Cerramos fichero
-    }
-     if(Op==4)
-    {
-pfA4 = fopen("c:Menu/Abrir Proyectos/A4/ProyectoA4.txt", "w");
-    fprintf(pfA4, "Meow");
-    fclose(pfA4); // Cerramos fichero
-    }
-     if(Op==5)
-    {
-pfA5 = fopen("c:Menu/Abrir Proyectos/A5/ProyectoA5.txt", "w");
-    fprintf(pfA5, "Meow");
-    fclose(pfA5); // Cerramos fichero
-    }
-
-    }
-else
+//Esta función crea un fichero con extensión csv dado un nombre el cual guarda en el fichero Nombres.csv.
+//Si el proceso se completa satisfactoriamente devuelve 1, en caso contrario devuelve 0.
+int crear_proyecto(char nombre[])
 {
-    pfC1 = fopen("c:Menu/Abrir Proyectos/ProyectoA1.txt", "w");
-    fprintf(pfC1, "Meow");
-    fclose(pfC1); // Cerramos fichero
+    FILE *fich,*nombres;
+
+    strcat(nombre,".csv");
+
+    fich=fopen(nombre,"w");
+
+    if(fich==NULL)
+    {
+        printf("Error al crear proyecto.");
+        return 0;
+    }
+    fclose(fich);
+
+    nombres=fopen("Nombres.csv","w");
+
+    if(nombres==NULL)
+    {
+        printf("Error al crear proyecto. Por favor, elimine el fichero generado.");
+        return 0;
+    }
+    fprintf(nombres,"%s\n",nombre);
+    fclose(nombres);
+
+    return 1;
 }
-return 0;
-  }

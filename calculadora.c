@@ -96,17 +96,6 @@ float resolv_imagen(float imagen[],char operaciones[],int orden,int longitud_ima
     float n_imagen[51];
     char n_operaciones[29];
 
-    for(k=0;k<longitud_imagen;++k)
-    {
-        printf("%f ",imagen[k]);
-    }
-    for(k=0;operaciones[k]!='\0';++k)
-    {
-        printf("%c ",operaciones[k]);
-    }
-
-    printf("\n");
-
     for(i=0;operaciones[i]!='\0';++i)
     {
         if(orden_operacion(operaciones[i])==orden)
@@ -279,7 +268,7 @@ float resolv_parentesis(char funcion[],int pos_cerrado,float x)
                         else
                             num*=actual/anterior;
                     }
-                    anterior+=actual;
+                    anterior+=(funcion[i]-48)*pow(10,contador_unidades);
                     cons=1;
                     ++contador_unidades;
                     break;
