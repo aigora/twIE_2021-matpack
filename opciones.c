@@ -58,11 +58,11 @@ void primer_menu()
     char RD,caracter,nombre[31];
 
     printf("Introduzca el numero correspondiente a la opcion que elija:\n");
-    printf("1- Crear Proyecto\n2- Mis Proyectos\n3- Manual (Recomendable si es su primera vez con el software)\n4- Salir");
+    printf("1- Crear Proyecto\n2- Mis Proyectos\n3- Manual (Recomendable si es su primera vez con el software)\n4- Salir\n");
 
     while(1)
     {
-        printf("\n> ");
+        printf("> ");
         scanf(" %i",&E1);
         switch(E1)
         {
@@ -134,10 +134,10 @@ void segundo_menu(char nombre[])
     char funcion[51],funciones[25][51],nom_fs[25][31],nom_f[31],Opcion[20],respuesta2[]="Guardar nueva funcion",respuesta3[]="Calcular imagen",respuesta4[]="Manual",respuesta5[]="Volver",respuesta6[]="Salir";
 
     printf("Introduzca el nombre de la opción que elija:\n");
-    printf("- Guardar nueva funcion\n- Calcular imagen\n- Manual:\n- Volver\n- Salir");
+    printf("- Guardar nueva funcion\n- Calcular imagen\n- Manual:\n- Volver\n- Salir\n");
     while(1)
     {
-        printf("\n> ");
+        printf("> ");
         scanf(" %19[^\n]",Opcion);
 
         if(strcmp(Opcion, respuesta2) == 0)
