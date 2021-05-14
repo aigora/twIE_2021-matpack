@@ -134,7 +134,7 @@ void segundo_menu(char nombre[])
     char funcion[51],funciones[25][51],nom_fs[25][31],nom_f[31],Opcion[20],respuesta2[]="Guardar nueva funcion",respuesta3[]="Calcular imagen",respuesta4[]="Manual",respuesta5[]="Volver",respuesta6[]="Salir";
 
     printf("Introduzca el nombre de la opción que elija:\n");
-    printf("- Guardar nueva funcion\n- Calcular imagen\n- Manual:\n- Volver\n- Salir\n");
+    printf("- Guardar nueva funcion\n- Calcular imagen\n- Manual\n- Volver\n- Salir\n");
     while(1)
     {
         printf("> ");
