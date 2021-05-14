@@ -122,6 +122,8 @@ void primer_menu()
                 }
             case 4:
                 exit(-1);
+        }
+    }
 }
 
 //Esta función envia al usuario al segundo menú.
@@ -206,4 +208,5 @@ void segundo_menu(char nombre[])
         {
             exit(-1);
         }
+    }
 }
