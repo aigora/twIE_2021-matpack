@@ -24,7 +24,7 @@ pfA1 = fopen("c:Menu/Abrir Proyectos/A1/ProyectoA1.txt", "w");
   }
     if(Op==2)
     {
- pfA2 = fopen("c:Menu/Abrir Proyectos/A2/ProyectoA2.txt", "w");
+ pfA2 = fopen("c:Menu/Abrir Proyectos/A2/ProyectoA.txt", "w");
     fprintf(pfA2, "Meow");
     fclose(pfA2); // Cerramos fichero
     }
