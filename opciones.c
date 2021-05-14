@@ -1,6 +1,6 @@
 #include "ficheros.h"
 
-//Esta función crea un fichero con extensión csv dado un nombre el cual guarda en el fichero Nombres.csv.
+//Esta funciÃ³n crea un fichero con extensiÃ³n csv dado un nombre el cual guarda en el fichero Nombres.csv.
 //Si el proceso se completa satisfactoriamente devuelve 1, en caso contrario devuelve 0.
 int crear_proyecto(char nombre[])
 {
@@ -30,7 +30,7 @@ int crear_proyecto(char nombre[])
     return 1;
 }
 
-//Esta función agrega información a un fichero.
+//Esta funciÃ³n agrega informaciÃ³n a un fichero.
 int agreg_info(char nombre[],char contenido)
 {
     FILE *fich;
@@ -41,7 +41,7 @@ int agreg_info(char nombre[],char contenido)
 
     if(fich==NULL)
     {
-        printf("Error al agregar información.\n");
+        printf("Error al agregar informaciÃ³n.\n");
         return 0;
     }
     fprintf(fich,"%s",contenido);
@@ -50,7 +50,7 @@ int agreg_info(char nombre[],char contenido)
     return 1;
 }
 
-//Esta función envia al usuario al primer menú.
+//Esta funciÃ³n envia al usuario al primer menÃº.
 void primer_menu()
 {
     FILE *config,*nombres;
@@ -67,11 +67,11 @@ void primer_menu()
         switch(E1)
         {
             case 1:
-                printf("\nIntroducza el nombre del proyecto: ");
+                printf("\nIntroduzca el nombre del proyecto: ");
                 scanf(" %30[^\n]",nombre);
-                printf("Elija el número de decimales a los que se redondeará o se truncará: ");
+                printf("Elija el nÃºmero de decimales a los que se redondearÃ¡ o se truncarÃ¡: ");
                 scanf("%i",&ND);
-                printf("Elija con que unidades unidades de ángulos con las que desea trabajar (radianes(R) o grados(G)): ");
+                printf("Elija con que unidades unidades de Ã¡ngulos con las que desea trabajar (radianes(R) o grados(G)): ");
                 scanf(" %c",&RD);
 
                 if(crear_proyecto(nombre))
@@ -100,7 +100,7 @@ void primer_menu()
                     }
                 else
                 {
-                    while(fscanf(nombres,"%c",&caracter)!=E0F)
+                    while(fscanf(nombres,"%c",&caracter)!=EOF)
                     {
                         if(primero)
                         {
@@ -124,25 +124,25 @@ void primer_menu()
                 exit(-1);
 }
 
-//Esta función envia al usuario al segundo menú.
+//Esta funciÃ³n envia al usuario al segundo menÃº.
 void segundo_menu(char nombre[])
 {
     int i,j=0,fila=0,igualdad=0,prop=1,prop2=1;
     float num;
     char funcion[51],funciones[25][51],nom_fs[25][31],nom_f[31],Opcion[20],respuesta2[]="Guardar nueva funcion",respuesta3[]="Calcular imagen",respuesta4[]="Manual",respuesta5[]="Volver",respuesta6[]="Salir";
 
-    printf("Introduzca el nombre de la opción que elija:\n")
+    printf("Introduzca el nombre de la opciÃ³n que elija:\n");
     printf("- Guardar nueva funcion\n- Calcular imagen\n- Manual:\n- Volver\n- Salir");
     while(1)
     {
-        printf("\n> ")
+        printf("\n> ");
         scanf(" %19[^\n]",Opcion);
 
         if(strcmp(Opcion, respuesta2) == 0)
         {
-            printf("Introduzca la expresión de la nueva función: ")
+            printf("Introduzca la expresiÃ³n de la nueva funciÃ³n: ");
             scanf("%c",funcion);
-            printf("Introduzca la expresión de la nueva función: ")
+            printf("Introduzca la expresiÃ³n de la nueva funciÃ³n: ");
             scanf("%c",funcion);
             strcat(funcion,"\n");
             agreg_info(nombre,funcion);
@@ -151,7 +151,7 @@ void segundo_menu(char nombre[])
             {
                 funciones[fila][i]=funcion[i];
             }
-            funcion[fila][i]='\0';
+            funciones[fila][i]='\0';
 
             for(i=0;nom_f[i]!='\0';++i)
             {
@@ -163,9 +163,9 @@ void segundo_menu(char nombre[])
 
         else if(strcmp(Opcion, respuesta3) == 0)
         {
-            printf("Introduzca la expresión o el nombre de la función: ")
+            printf("Introduzca la expresiÃ³n o el nombre de la funciÃ³n: ");
             scanf("%51[^n]",funcion);
-            printf("Introduzca el valor del que desea calcular su imagen: ")
+            printf("Introduzca el valor del que desea calcular su imagen: ");
             scanf("%f",num);
 
             i=0;
@@ -177,8 +177,10 @@ void segundo_menu(char nombre[])
                     if(nom_fs[i][j]!=funcion[j])
                         prop=0;
                     else if(nom_fs[i][j]=='\0' && nom_fs[i][j]=='\0')
+                    {
                         prop=0;
                         igualdad=1;
+                    }
                     else if(nom_fs[i][j]=='\0' ||  nom_fs[i][j]=='\0')
                         prop=0;
                     else
