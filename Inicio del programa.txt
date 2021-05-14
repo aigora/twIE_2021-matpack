@@ -60,7 +60,7 @@ pfA3=fopen(nombre3,"a");
 V1=3;
     break;
     case 4:
-pfA1=fopen(nombre1,"a");
+pfA4=fopen(nombre4,"a");
 V1=4;
     break;
     }
