@@ -2,6 +2,7 @@
 #include "analisis.h"
 
 void invertir(char func[] , char resultado[] ){
+    char fin[]={'\0'};
 //creo una cadena vacia a la que irer añadiendo el contenido de la funcion inversa
     char invert[25] = "";
 //creo dos variables para invertir una constante, una para el abrir y otra para cerrar de forma que la inversa ce una constante quede "*(1/K)
@@ -99,83 +100,129 @@ void invertir(char func[] , char resultado[] ){
     }
 //la cadena resultado, que sera la devuelta por la funcion , toma el valor de "invertida" que ya es la funcion inversa ya terminada
      strcpy(resultado,invert ) ;
+     strcat(resultado,fin);
 }
 }
 
-void traducir(char func[] , char devolver[] ){
+void traducir_o(char func[] , char resultado[] ){
 int i ;
 //esta variable se usa para detectar si hay una constante, ya que al pasar de una funbcion , por ejemplo C(s(x*(1/2))) a cos(sen(x/2))
 // se ha de eliminar un par de parentesis y la constante nos ayuda a ello
 int b=0;
-char resultado[30]="";
-strcat(func , ";");
-strupr(func);
-//se copian sobre una cadena vacia segun corresponda a cada funcion
-for(i=0 ; func[i]!=';' ; i++){
+char fin[]={'\0'},agregar[2];
 
-  if((func[i]=='^')){
-    strcat(resultado , "^");
-  }
-  if((func[i]=='(')){
-    strcat(resultado , "(");
-  }
-  if((func[i]==')')){
-//en caso de b tomar el valor de 0 sabemos que no ha habido ninguna constante o que ya se ha eliminado el par de parentesis sobrantes
+for(i=0 ; i<strlen(func) ; i++){
+  agregar[0]=func[i];
+  agregar[1]='\0';
 
-    if(b==0){
-    strcat(resultado , ")");}
-//si b tiene un valor distinto de 0 quiere decir que ha habido una constante por lo que no se agregara parentesis de cierre pero de dara a  b el valor de 0 para que estos si se agreguen mas tarde
-    else{
-        b=0;}
-
-  }
-  if((func[i]=='L')){
+  if((func[i]=='l')){
     strcat(resultado , "ln");
   }
-  if(func[i]=='S'){
+  else if(func[i]=='s'){
     strcat(resultado , "sen");
   }
-  if((func[i]=='C')){
+  else if((func[i]=='c')){
     strcat(resultado , "cos");
   }
-  if((func[i]=='T')){
+  else if((func[i]=='t')){
     strcat(resultado , "tan");
   }
-  if((func[i]=='A')){
+  else if((func[i]=='a')){
     strcat(resultado , "arctan");
   }
-  if((func[i]=='O')){
+  else if((func[i]=='o')){
     strcat(resultado , "arccos");
   }
-  if((func[i]=='I')){
+  else if((func[i]=='i')){
     strcat(resultado , "arcsen");
     }
-  if((func[i]=='-')){
-    strcat(resultado , "-");
+  else{
+      strcat(resultado,agregar);
   }
-  if((func[i]=='X')){
-    strcat(resultado , "x");
   }
-//si se detecta el signo * quiere decir que hay una constante del tipo *(1/k) po lo que se aumentara en 3 cifras el valor de la 1 de forma que el parentesis de apertura sobrante se borre
-//al igual que el signo * y el 1 , para asi quedarnos con una funcion del estilo x/k
-  if((func[i]=='*')){
-    b=1;
-    i=i+3;
-}
-//condicionales if para ir añadiendo a la cadena vacia los valores de la constante
- if((func[i]=='1')){strcat(resultado , "1");} if((func[i]=='2')){strcat(resultado , "2");}
- if((func[i]=='3')){strcat(resultado , "3");} if((func[i]=='4')){strcat(resultado , "4");}
- if((func[i]=='5')){strcat(resultado , "5");} if((func[i]=='6')){strcat(resultado , "6");}
- if((func[i]=='7')){strcat(resultado , "7");} if((func[i]=='8')){strcat(resultado , "8");}
- if((func[i]=='9')){strcat(resultado , "9");} if((func[i]=='0')){strcat(resultado , "0");}
- if((func[i]=='E')){strcat(resultado , "e");} if((func[i]=='P')){strcat(resultado , "pi");}
-
- if((func[i]=='/')){
-    strcat(resultado , "/");
-  }
-}
-//se le otorga a la cadena devolver (que es la cadena que devolvera la funcion) la secuencia de caracteres de la cadena resultado,la cual contiene ya
-//la funcion que se habia introducido pero reescrita de una forma que resulte mas visual y facil de entender
-strcpy(devolver , resultado);
 }
 
+void traducir_r(char Nueva[],char Final[])
+{
+    int i,j=0;
+
+    for(i=0;i<strlen(Nueva);i++)
+    {
+        if(Nueva[i]=='s'&&Nueva[i+1]=='e'&&Nueva[i+2]=='n')
+           {
+               Final[j]='s';
+               i+=2;
+           }
+        else if(Nueva[i]=='c'&&Nueva[i+1]=='o'&&Nueva[i+2]=='s')
+           {
+               Final[j]='c';
+               i+=2;
+           }
+        else if(Nueva[i]=='t'&&Nueva[i+1]=='a'&&Nueva[i+2]=='n')
+           {
+               Final[j]='t';
+               i+=2;
+           }
+        else if(Nueva[i]=='l'&&Nueva[i+1]=='n')
+           {
+               Final[j]='l';
+               i+=1;
+           }
+        else if(Nueva[i]=='a'&&Nueva[i+1]=='r'&&Nueva[i+2]=='c'&&Nueva[i+3]=='s'&&Nueva[i+4]=='e'&&Nueva[i+5]=='n')
+           {
+               Final[j]='i';
+               i+=5;
+           }
+        else if( Nueva[i]=='a'&&Nueva[i+1]=='r'&&Nueva[i+2]=='c'&&Nueva[i+3]=='c'&&Nueva[i+4]=='o'&&Nueva[i+5]=='s')
+           {
+               Final[j]='o';
+               i+=5;
+           }
+        else if(Nueva[i]=='a'&&Nueva[i+1]=='r'&&Nueva[i+2]=='c'&&Nueva[i+3]=='t'&&Nueva[i+4]=='a'&&Nueva[i+5]=='n')
+           {
+               Final[j]='i';
+               i+=5;
+           }
+
+        else
+        {
+            Final[j]=Nueva[i];
+        }
+        ++j;
+}
+Final[i]='\0';
+}
+
+//Esta función halla el valor mínimo de un conjunto.
+float minimo(float valores_y[],int longitud_x)
+{
+    int i;
+    float min=valores_y[0];
+
+    for(i=1;i<longitud_x;++i)
+    {
+        if(valores_y[i]<min)
+            min=valores_y[i];
+    }
+    return min;
+}
+
+
+//Esta función halla el valor máximo de un conjunto.
+float mayor(float valores_y[],int longitud_x)
+{
+    int i;
+    float max=valores_y[0];
+
+    for(i=1;i<longitud_x;++i)
+    {
+        if(valores_y[i]>max)
+            max=valores_y[i];
+    }
+    for(i=0;i<longitud_x;++i)
+    {
+        if(valores_y[i]==max)
+            valores_y[i]=minimo(valores_y,longitud_x);
+    }
+    return max;
+}

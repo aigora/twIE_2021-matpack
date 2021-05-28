@@ -151,6 +151,7 @@ float resolv_parentesis(char funcion[],int pos_cerrado,float x)
         {
             num=resolv_parentesis(funcion,i,x);
             i=pos_final(funcion,i);
+            producto=1;
         }
         else if(funcion[i]=='(')
         {
@@ -226,6 +227,30 @@ float resolv_parentesis(char funcion[],int pos_cerrado,float x)
                     cons=0;
                     contador_unidades=0;
                     num=tan(num);
+                    break;
+                case 'i':
+                    actual=0;
+                    anterior=0;
+                    producto=1;
+                    cons=0;
+                    contador_unidades=0;
+                    num=asin(num);
+                    break;
+                case 'o':
+                    actual=0;
+                    anterior=0;
+                    producto=1;
+                    cons=0;
+                    contador_unidades=0;
+                    num=acos(num);
+                    break;
+                case 'a':
+                    actual=0;
+                    anterior=0;
+                    producto=1;
+                    cons=0;
+                    contador_unidades=0;
+                    num=atan(num);
                     break;
                 case 'e':
                     actual=0;
